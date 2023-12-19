@@ -15,7 +15,8 @@ const forecast = (latitude, longitude, callback) => {
             const feelLikeTemp = body.current.feelslike;
             const location = body.location.name;
             const weather_description = body.current.weather_descriptions;
-            const report = `${weather_description}. It is ${temp} degree outside in ${location}, but feels like ${feelLikeTemp} degree`;
+            const localTime = body.location.localtime;
+            const report = `${weather_description}. It is ${temp} degree outside in ${location}, but feels like ${feelLikeTemp} degree at local time : ${localTime}`;
             callback(undefined, report);
         }
     })
